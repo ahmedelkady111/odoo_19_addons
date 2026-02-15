@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="custom_invoice" inherit_id="account.report_invoice_with_payments">
+        <xpath expr="//t[@t-call='web.html_container']" position="replace">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.basic_layout">
+                        <div style="direction:ltr" class="page">
+                            <style type="text/css">
+                                * {
+                                margin: 2pt;
+                                padding: 0;
+                                text-indent: 0;
+                                }
+
+                                .tdd {
+                                border-collapse: collapse;
+                                border-spacing: 0;
+                                width: 60%;
+                                border-width: 1pt;
+                                border-style: solid;
+                                border-color: black;
+                                }
+
+                                .tdd tr {
+                                border-width: 1pt;
+                                border-style: solid;
+                                border-color: black;
+                                padding: 5pt;
+                                }
+
+                                .tdd th {
+                                border-width: 1pt;
+                                border-style: solid;
+                                border-color: black;
+                                padding: 5pt;
+                                font-size: 9.5pt;
+                                font-style: noraml;
+                                }
+
+                                .tdd td {
+                                border-width: 1px;
+                                border-style: solid;
+                                border-color: black;
+                                padding: 5pt;
+                                text-align: center;
+                                }
+
+
+                                .tg {
+                                margin: 20pt;
+                                border-collapse: collapse;
+                                border-spacing: 0;
+                                width: 96%;
+                                border-width: 1pt;
+                                border-style: solid;
+                                border-color: black;
+                                }
+
+                                .tg tr {
+                                border-width: 1pt;
+                                border-style: solid;
+                                border-color: black;
+                                padding: 5pt;
+                                }
+
+                                .tg th {
+                                border-width: 1pt;
+                                border-style: solid;
+                                border-color: black;
+                                padding: 5pt;
+                                font-size: 9.5pt;
+                                font-style: noraml;
+                                }
+
+                                .tg td {
+                                border-width: 1px;
+                                border-style: solid;
+                                border-color: black;
+                                padding: 5pt;
+                                }
+
+                                h2 {
+                                color: black;
+                                font-family: Arial, sans-serif;
+                                font-style: normal;
+                                font-weight: bold;
+                                text-decoration: none;
+                                font-size: 10.5pt;
+                                }
+
+                                h4 {
+                                color: #474F55;
+                                font-family: Arial, sans-serif;
+                                font-style: normal;
+                                font-weight: bold;
+                                text-decoration: none;
+                                font-size: 8pt;
+                                }
+
+                                h1 {
+                                color: black;
+                                font-family: Arial, sans-serif;
+                                font-style: normal;
+                                font-weight: bold;
+                                text-decoration: none;
+                                font-size: 12pt;
+                                }
+
+                                .s1 {
+                                color: black;
+                                font-family: Arial, sans-serif;
+                                font-style: normal;
+                                font-weight: bold;
+                                text-decoration: none;
+                                font-size: 9pt;
+                                }
+
+                                .s2 {
+                                color: black;
+                                font-family: "Microsoft Sans Serif", sans-serif;
+                                font-style: normal;
+                                font-weight: bold;
+                                text-decoration: none;
+                                font-size: 7.5pt;
+                                }
+
+                                .s3 {
+                                color: black;
+                                font-family: "Times New Roman", serif;
+                                font-style: normal;
+                                font-weight: bold;
+                                text-decoration: none;
+                                font-size: 11pt;
+                                }
+
+                                .s4 {
+                                color: #1F3E99;
+                                font-family: Arial, sans-serif;
+                                font-style: normal;
+                                font-weight: bold;
+                                text-decoration: none;
+                                font-size: 9.5pt;
+                                }
+
+                                .s5 {
+                                color: #474F55;
+                                font-family: "Microsoft Sans Serif", sans-serif;
+                                font-style: normal;
+                                font-weight: normal;
+                                text-decoration: none;
+                                font-size: 9.5pt;
+                                }
+
+                                .s6 {
+                                color: black;
+                                font-family: "Microsoft Sans Serif", sans-serif;
+                                font-style: normal;
+                                font-weight: bold;
+                                text-decoration: none;
+                                font-size: 9.5pt;
+                                }
+
+                                .s7 {
+                                color: black;
+                                font-family: Arial, sans-serif;
+                                font-style: normal;
+                                font-weight: bold;
+                                text-decoration: none;
+                                font-size: 9.5pt;
+                                }
+
+                                .s8 {
+                                color: black;
+                                font-family: "Trebuchet MS", sans-serif;
+                                font-style: normal;
+                                font-weight: normal;
+                                text-decoration: none;
+                                font-size: 9.5pt;
+                                }
+
+                                .s9 {
+                                color: black;
+                                font-family: "Microsoft Sans Serif", sans-serif;
+                                font-style: normal;
+                                font-weight: normal;
+                                text-decoration: none;
+                                font-size: 9.5pt;
+                                }
+
+                                .s10 {
+                                color: black;
+                                font-family: "Trebuchet MS", sans-serif;
+                                font-style: italic;
+                                font-weight: normal;
+                                text-decoration: none;
+                                font-size: 9.5pt;
+                                }
+
+                                .s11 {
+                                color: black;
+                                font-family: Arial, sans-serif;
+                                font-style: normal;
+                                font-weight: normal;
+                                text-decoration: none;
+                                font-size: 14pt;
+                                }
+
+                                .th4 {
+                                color: #22429a;
+                                font-family: Arial, sans-serif;
+                                font-style: normal;
+                                font-weight: bold;
+                                font-size: 11pt;
+                                }
+
+                                p {
+                                color: black;
+                                font-family: Arial, sans-serif;
+                                font-style: normal;
+                                font-weight: normal;
+                                text-decoration: none;
+                                font-size: 12pt;
+                                margin: 0pt;
+                                }
+
+                                h3 {
+                                color: #474F55;
+                                font-family: Arial, sans-serif;
+                                font-style: normal;
+                                font-weight: bold;
+                                text-decoration: none;
+                                font-size: 9pt;
+                                }
+
+                                .s12 {
+                                color: #474F55;
+                                font-family: Arial, sans-serif;
+                                font-style: normal;
+                                font-weight: normal;
+                                text-decoration: none;
+                                font-size: 9.5pt;
+                                }
+
+                                .row-space-between {
+                                display: flex;
+                                display: -webkit-box;
+                                -webkit-box-pack: justify;
+                                -ms-flex-pack: justify;
+                                justify-content: space-between;
+                                }
+
+                                table,
+                                tbody {
+                                vertical-align: top;
+                                overflow: visible;
+
+                                }
+                            </style>
+                            <div class="footer">
+                                <hr/>
+                                <div style="display: -webkit-box;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: sspace-evenly;">
+                                    <p style="padding-right: 50pt;">
+                                        جوال: 0504220303 جوال: 0503250303
+                                    </p>
+                                    <p>
+                                        القصيم- الرس - طريق الملك سلمان
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row-space-between">
+                                <image src="/alkader_invoice/static/img/logo.png" alt="Logo"
+                                       style="max-width:250px; max-height:100px;"/>
+                                <div style="margin-top: 10px;margin-right: 10px">
+                                    <h2 style="padding-top: 4pt;text-indent: 0pt;text-align: center;">
+                                        مؤسسة الكادر المحترف
+                                    </h2>
+                                    <h4 style="padding-top: 2pt;text-indent: 0pt;text-align: center;">
+                                        300919273400003
+                                    </h4>
+                                    <h2 style="padding-top: 1pt;text-indent: 0pt;text-align: center;">
+                                        المملكة العربية السعودية
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="row-space-between">
+                                <div>
+                                    <h1 style="padding-top: 4pt;padding-left: 56pt;text-indent: 0pt;text-align: left;">
+                                        فاتورة ضريبية
+                                    </h1>
+                                    <p style="text-indent: 0pt;text-align: left;">
+                                        <br/>
+                                    </p>
+                                    <img t-if="o.einv_sa_qr_code_str" style="margin-left: 40px;"
+                                         t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', o.einv_sa_qr_code_str, 130, 130)"/>
+                                </div>
+                                <div>
+                                    <table style="border-collapse:collapse;" cellspacing="0">
+                                        <tr style="height:21pt">
+                                            <td style="width:153pt;border-top-style:solid;border-top-width:1pt;border-top-color:#DDE0E4;border-left-style:solid;border-left-width:1pt;border-left-color:#DDE0E4;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#DDE0E4;border-right-style:solid;border-right-width:1pt;border-right-color:#DDE0E4">
+                                                <p class="s1"
+                                                   style="padding-top: 3pt;padding-left: 40pt;text-indent: 0pt;text-align: left;">
+                                                    <t t-esc="o.partner_id.name"/>
+                                                </p>
+                                            </td>
+                                            <td style="width:96pt;border-top-style:solid;border-top-width:1pt;border-top-color:#DDE0E4;border-left-style:solid;border-left-width:1pt;border-left-color:#DDE0E4;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#DDE0E4;border-right-style:solid;border-right-width:1pt;border-right-color:#DDE0E4">
+                                                <p class="s2"
+                                                   style="padding-top: 3pt;padding-left: 24pt;padding-right: 24pt;text-indent: 0pt;text-align: center;">
+                                                    اسم العميل
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr style="height:20pt">
+                                            <td style="width:153pt;border-top-style:solid;border-top-width:1pt;border-top-color:#DDE0E4;border-left-style:solid;border-left-width:1pt;border-left-color:#DDE0E4;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#DDE0E4;border-right-style:solid;border-right-width:1pt;border-right-color:#DDE0E4">
+                                                <p class="s1"
+                                                   style="padding-top: 3pt;padding-left: 35pt;text-indent: 0pt;text-align: left;">
+                                                    <t t-esc="o.partner_id.phone"/>
+                                                </p>
+                                            </td>
+                                            <td style="width:96pt;border-top-style:solid;border-top-width:1pt;border-top-color:#DDE0E4;border-left-style:solid;border-left-width:1pt;border-left-color:#DDE0E4;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#DDE0E4;border-right-style:solid;border-right-width:1pt;border-right-color:#DDE0E4">
+                                                <p class="s2"
+                                                   style="padding-top: 3pt;padding-left: 24pt;padding-right: 24pt;text-indent: 0pt;text-align: center;">
+                                                    رقم الجوال
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr style="height:20pt">
+                                            <td style="width:153pt;border-top-style:solid;border-top-width:1pt;border-top-color:#DDE0E4;border-left-style:solid;border-left-width:1pt;border-left-color:#DDE0E4;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#DDE0E4;border-right-style:solid;border-right-width:1pt;border-right-color:#DDE0E4">
+                                                <p class="s1"
+                                                   style="padding-top: 3pt;padding-left: 33pt;text-indent: 0pt;text-align: left;">
+                                                    <t t-esc="o.partner_id.vat"/>
+                                                </p>
+                                            </td>
+                                            <td style="width:96pt;border-top-style:solid;border-top-width:1pt;border-top-color:#DDE0E4;border-left-style:solid;border-left-width:1pt;border-left-color:#DDE0E4;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#DDE0E4;border-right-style:solid;border-right-width:1pt;border-right-color:#DDE0E4">
+                                                <p class="s2"
+                                                   style="padding-top: 3pt;padding-left: 26pt;padding-right: 24pt;text-indent: 0pt;text-align: center;">
+                                                    الرقم الضريبى
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <p style="text-indent: 0pt;text-align: left;">
+                                        <br/>
+                                    </p>
+                                    <p style="text-indent: 0pt;text-align: left;">
+                                        <br/>
+                                    </p>
+                                    <table style="border-collapse:collapse;" cellspacing="0">
+                                        <tr style="height:18pt">
+                                            <td style="width:144pt;border-top-style:solid;border-top-width:1pt;border-top-color:#DDE0E4;border-left-style:solid;border-left-width:1pt;border-left-color:#DDE0E4;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#DDE0E4;border-right-style:solid;border-right-width:1pt;border-right-color:#DDE0E4">
+                                                <p class="s1"
+                                                   style="padding-top: 3pt;padding-left: 30pt;padding-right: 26pt;text-indent: 0pt;text-align: center;">
+                                                    <t t-esc="o.name"/>
+                                                </p>
+                                            </td>
+                                            <td style="width:105pt;border-top-style:solid;border-top-width:1pt;border-top-color:#DDE0E4;border-left-style:solid;border-left-width:1pt;border-left-color:#DDE0E4;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#DDE0E4;border-right-style:solid;border-right-width:1pt;border-right-color:#DDE0E4">
+                                                <p class="s2"
+                                                   style="padding-top: 3pt;padding-left: 27pt;padding-right: 27pt;text-indent: 0pt;text-align: center;">
+                                                    رقم الفاتوره
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr style="height:18pt">
+                                            <td style="width:144pt;border-top-style:solid;border-top-width:1pt;border-top-color:#DDE0E4;border-left-style:solid;border-left-width:1pt;border-left-color:#DDE0E4;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#DDE0E4;border-right-style:solid;border-right-width:1pt;border-right-color:#DDE0E4">
+                                                <p class="s1"
+                                                   style="padding-top: 3pt;padding-left: 30pt;padding-right: 26pt;text-indent: 0pt;text-align: center;">
+                                                    <t t-if="o.invoice_date">
+                                                        <t t-esc="o.invoice_date"/>
+                                                    </t>
+                                                </p>
+                                            </td>
+                                            <td style="width:105pt;border-top-style:solid;border-top-width:1pt;border-top-color:#DDE0E4;border-left-style:solid;border-left-width:1pt;border-left-color:#DDE0E4;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#DDE0E4;border-right-style:solid;border-right-width:1pt;border-right-color:#DDE0E4">
+                                                <p class="s2"
+                                                   style="padding-top: 3pt;padding-left: 27pt;padding-right: 27pt;text-indent: 0pt;text-align: center;">
+                                                    تاريخ الفاتورة
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr style="height:22pt">
+                                            <td style="width:144pt;border-top-style:solid;border-top-width:1pt;border-top-color:#DDE0E4;border-left-style:solid;border-left-width:1pt;border-left-color:#DDE0E4;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#DDE0E4;border-right-style:solid;border-right-width:1pt;border-right-color:#DDE0E4">
+                                                <p class="s1" style="padding-top: 3pt;text-align: center;">
+                                                    <t t-esc="o.invoice_date_due"/>
+                                                </p>
+                                            </td>
+                                            <td style="width:105pt;border-top-style:solid;border-top-width:1pt;border-top-color:#DDE0E4;border-left-style:solid;border-left-width:1pt;border-left-color:#DDE0E4;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#DDE0E4;border-right-style:solid;border-right-width:1pt;border-right-color:#DDE0E4">
+                                                <p class="s2" style="padding-top: 3pt;text-align: center;">
+                                                    تاريخ الاستحقاق
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr style="height:18pt">
+                                            <td style="width:144pt;border-top-style:solid;border-top-width:1pt;border-top-color:#DDE0E4;border-left-style:solid;border-left-width:1pt;border-left-color:#DDE0E4;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#DDE0E4;border-right-style:solid;border-right-width:1pt;border-right-color:#DDE0E4">
+                                                <p class="s1" style="padding-top: 3pt;text-align: center;">
+                                                    <t t-esc="o.invoice_user_id.name"/>
+                                                </p>
+                                            </td>
+                                            <td style="width:105pt;border-top-style:solid;border-top-width:1pt;border-top-color:#DDE0E4;border-left-style:solid;border-left-width:1pt;border-left-color:#DDE0E4;border-bottom-style:solid;border-bottom-width:1pt;border-bottom-color:#DDE0E4;border-right-style:solid;border-right-width:1pt;border-right-color:#DDE0E4">
+                                                <p class="s2" style="padding-top: 3pt;text-align: center;">
+                                                    اسم البائع
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <p style="text-indent: 0pt;text-align: left;">
+                                <br/>
+                            </p>
+                            <p style="text-indent: 0pt;text-align: left;">
+                                <br/>
+                            </p>
+                            <table class="tg">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <p class="th4">
+                                                السعر الإجمالى
+                                            </p>
+                                            <br/>
+                                            <p class="th4">
+                                                TOTAL PRICE
+                                            </p>
+                                        </th>
+                                        <th>
+                                            <p class="th4">
+                                                قيمة الضريبة
+                                            </p>
+                                            <br/>
+                                            <p class="th4">
+                                                VAT AMOUNT
+                                            </p>
+                                        </th>
+                                        <th>
+                                            <p class="th4">
+                                                مبلغ
+                                            </p>
+                                            <br/>
+                                            <p class="th4">
+                                                AMOUNT
+                                            </p>
+                                        </th>
+                                        <th>
+                                            <p class="th4">
+                                                الضرائب
+                                            </p>
+                                            <br/>
+                                            <p class="th4">
+                                                TAXES
+                                            </p>
+                                        </th>
+                                        <th>
+                                            <p class="th4">
+                                                سعر الوحدة
+                                            </p>
+                                            <br/>
+                                            <p class="th4">
+                                                UNIT PRICE
+                                            </p>
+                                        </th>
+                                        <th>
+                                            <p class="th4">
+                                                الكمية
+                                            </p>
+                                            <br/>
+                                            <p class="th4">
+                                                QUANTITY
+                                            </p>
+                                        </th>
+                                        <th>
+                                            <p class="th4">
+                                                الوصف
+                                            </p>
+                                            <br/>
+                                            <p class="th4">
+                                                DESCRIPTION
+                                            </p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.invoice_line_ids" t-as="line">
+                                        <tr>
+                                            <td style="background-color: #DDE0E4;">
+                                                <p class="th5">
+                                                    <t t-esc="line.price_total"/>
+                                                    SR
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p class="th5">
+                                                    <t t-esc="line.tax_base_amount"/>
+                                                    SR
+                                                </p>
+                                            </td>
+                                            <td style="background-color: #DDE0E4;">
+                                                <p class="th5">
+                                                    <t t-esc="line.price_subtotal"/>
+                                                    SR
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <t t-if="len(line.tax_ids) > 0">
+                                                    <p class="th5">
+                                                        <t t-esc="line.tax_ids[0].name"/>
+                                                    </p>
+                                                </t>
+
+                                            </td>
+                                            <td>
+                                                <p class="th5">
+                                                    <t t-esc="line.price_unit"/>
+                                                    SR
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p class="th5">
+                                                    <t t-esc="line.quantity"/>
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p class="th5">
+                                                    <t t-esc="line.product_id.name"/>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <p style="text-indent: 0pt;text-align: left;">
+                                <br/>
+                            </p>
+                            <p style="text-indent: 0pt;text-align: left;">
+                                <br/>
+                            </p>
+                            <div class="row-space-between">
+                                <table class="tdd">
+                                    <tbody>
+                                        <tr>
+                                            <td style="background-color: #DDE0E4;">
+                                                <t t-esc="o.amount_untaxed"/>
+                                            </td>
+                                            <td style="background-color: #DDE0E4;">
+                                                الإجمالى الفرعى / Subtotal
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <t t-esc="o.amount_tax"/>
+                                            </td>
+                                            <td>
+                                                ضريبة القيمة المضافة / VAT Taxes
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #DDE0E4;">
+                                                <t t-esc="o.amount_total"/>
+                                            </td>
+                                            <td style="background-color: #DDE0E4;">
+                                                المجموع / Total
+                                            </td>
+                                        </tr>
+                                        <t t-if="o.invoice_payments_widget">
+                                            <t t-foreach="o.invoice_payments_widget['content']" t-as="payment">
+                                                <tr>
+                                                    <td>
+                                                        <t t-esc="payment['amount']"/>
+                                                    </td>
+                                                    <td>
+                                                        دفعت فى
+                                                        <t t-esc="payment['date']"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </t>
+                                        <tr>
+                                            <td style="background-color: #DDE0E4;">
+                                                <t t-esc="o.amount_residual"/>
+                                            </td>
+                                            <td style="background-color: #DDE0E4;">
+                                                المبلغ المستحق / Amount Due
+                                            </td>
+                                        </tr>
+                                        <t t-if="o.invoice_line_ids[0].sale_line_ids">
+                                            <tr>
+                                                <td style="background-color: #DDE0E4;">
+                                                    <t t-esc="o.invoice_line_ids[0].sale_line_ids[0].order_id.payment_way.name"/>
+                                                </td>
+                                                <td style="background-color: #DDE0E4;">
+                                                    Payment Way / طريقة الدفع
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <div style="margin-top: 10px;margin-right: 10px; direction: rtl;text-align: right;">
+                                    <h1 style="padding-top: 4pt;">
+                                        سياسة الاسترجاع والاستبدال
+                                    </h1>
+                                    <h1 style="padding-top: 10pt;">
+                                        1- خلال 3 ايام من تاريخ الفاتوره.
+                                    </h1>
+                                    <h1 style="padding-top: 2pt;;">
+                                        2- لابد من الفاتوره الاصل.
+                                    </h1>
+                                    <h1 style="padding-top: 2pt;">
+                                        3- ان تكون بنفس حالتها المباعه.
+                                    </h1>
+                                    <h1 style="padding-top: 2pt;">
+                                        4- قبل التركيب.
+                                    </h1>
+                                </div>
+                            </div>
+                            <p style="page-break-after:always;"/>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </xpath>
+    </template>
+</odoo>
