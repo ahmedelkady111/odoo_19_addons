@@ -3,6 +3,7 @@ from odoo import models, fields, api, _
 
 class PaymentSales(models.Model):
     _name = 'sale.order.payment'
+    _description = 'Sale Order Payment Method'
 
     name = fields.Char(string='Name')
     company_id = fields.Many2one(

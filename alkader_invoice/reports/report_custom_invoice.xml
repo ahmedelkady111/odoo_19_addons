@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="custom_invoice" inherit_id="account.report_invoice_with_payments">
-        <xpath expr="//t[@t-call='web.html_container']" position="replace">
-            <t t-call="web.html_container">
-                <t t-foreach="docs" t-as="o">
-                    <t t-call="web.basic_layout">
-                        <div style="direction:ltr" class="page">
+    <template id="custom_invoice" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@class='clearfix invoice_main']" position="replace">
+            <div class="clearfix invoice_main">
+                <div class="page">
+                            <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
                             <style type="text/css">
+                                @charset "UTF-8";
+                                
                                 * {
                                 margin: 2pt;
                                 padding: 0;
                                 text-indent: 0;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 }
 
                                 .tdd {
@@ -82,7 +84,7 @@
 
                                 h2 {
                                 color: black;
-                                font-family: Arial, sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: bold;
                                 text-decoration: none;
@@ -91,7 +93,7 @@
 
                                 h4 {
                                 color: #474F55;
-                                font-family: Arial, sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: bold;
                                 text-decoration: none;
@@ -100,7 +102,7 @@
 
                                 h1 {
                                 color: black;
-                                font-family: Arial, sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: bold;
                                 text-decoration: none;
@@ -109,7 +111,7 @@
 
                                 .s1 {
                                 color: black;
-                                font-family: Arial, sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: bold;
                                 text-decoration: none;
@@ -118,7 +120,7 @@
 
                                 .s2 {
                                 color: black;
-                                font-family: "Microsoft Sans Serif", sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: bold;
                                 text-decoration: none;
@@ -127,7 +129,7 @@
 
                                 .s3 {
                                 color: black;
-                                font-family: "Times New Roman", serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: bold;
                                 text-decoration: none;
@@ -136,7 +138,7 @@
 
                                 .s4 {
                                 color: #1F3E99;
-                                font-family: Arial, sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: bold;
                                 text-decoration: none;
@@ -145,7 +147,7 @@
 
                                 .s5 {
                                 color: #474F55;
-                                font-family: "Microsoft Sans Serif", sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: normal;
                                 text-decoration: none;
@@ -154,7 +156,7 @@
 
                                 .s6 {
                                 color: black;
-                                font-family: "Microsoft Sans Serif", sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: bold;
                                 text-decoration: none;
@@ -163,7 +165,7 @@
 
                                 .s7 {
                                 color: black;
-                                font-family: Arial, sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: bold;
                                 text-decoration: none;
@@ -172,7 +174,7 @@
 
                                 .s8 {
                                 color: black;
-                                font-family: "Trebuchet MS", sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: normal;
                                 text-decoration: none;
@@ -181,7 +183,7 @@
 
                                 .s9 {
                                 color: black;
-                                font-family: "Microsoft Sans Serif", sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: normal;
                                 text-decoration: none;
@@ -190,7 +192,7 @@
 
                                 .s10 {
                                 color: black;
-                                font-family: "Trebuchet MS", sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: italic;
                                 font-weight: normal;
                                 text-decoration: none;
@@ -199,7 +201,7 @@
 
                                 .s11 {
                                 color: black;
-                                font-family: Arial, sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: normal;
                                 text-decoration: none;
@@ -208,15 +210,23 @@
 
                                 .th4 {
                                 color: #22429a;
-                                font-family: Arial, sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: bold;
                                 font-size: 11pt;
                                 }
 
+                                .th5 {
+                                color: black;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
+                                font-style: normal;
+                                font-weight: normal;
+                                font-size: 9.5pt;
+                                }
+
                                 p {
                                 color: black;
-                                font-family: Arial, sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: normal;
                                 text-decoration: none;
@@ -226,7 +236,7 @@
 
                                 h3 {
                                 color: #474F55;
-                                font-family: Arial, sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: bold;
                                 text-decoration: none;
@@ -235,7 +245,7 @@
 
                                 .s12 {
                                 color: #474F55;
-                                font-family: Arial, sans-serif;
+                                font-family: 'KacstOne', 'KacstFarsi', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans Arabic', 'Noto Kufi Arabic', sans-serif !important;
                                 font-style: normal;
                                 font-weight: normal;
                                 text-decoration: none;
@@ -264,28 +274,28 @@
                                         جوال: 0504220303 جوال: 0503250303
                                     </p>
                                     <p>
-                                        القصيم- الرس - طريق الملك سلمان
+                                        القصيم- الرس - طريق الملك سلمانPheone
                                     </p>
                                 </div>
                             </div>
                             <div class="row-space-between">
                                 <image src="/alkader_invoice/static/img/logo.png" alt="Logo"
                                        style="max-width:250px; max-height:100px;"/>
-                                <div style="margin-top: 10px;margin-right: 10px">
-                                    <h2 style="padding-top: 4pt;text-indent: 0pt;text-align: center;">
+                                <div style="margin-top: 10px;margin-right: 10px; direction: rtl;">
+                                    <h2 style="padding-top: 4pt;text-indent: 0pt;text-align: center; direction: rtl;">
                                         مؤسسة الكادر المحترف
                                     </h2>
                                     <h4 style="padding-top: 2pt;text-indent: 0pt;text-align: center;">
                                         300919273400003
                                     </h4>
-                                    <h2 style="padding-top: 1pt;text-indent: 0pt;text-align: center;">
+                                    <h2 style="padding-top: 1pt;text-indent: 0pt;text-align: center; direction: rtl;">
                                         المملكة العربية السعودية
                                     </h2>
                                 </div>
                             </div>
                             <div class="row-space-between">
-                                <div>
-                                    <h1 style="padding-top: 4pt;padding-left: 56pt;text-indent: 0pt;text-align: left;">
+                                <div style="direction: rtl;">
+                                    <h1 style="padding-top: 4pt;padding-right: 56pt;text-indent: 0pt;text-align: right; direction: rtl;">
                                         فاتورة ضريبية
                                     </h1>
                                     <p style="text-indent: 0pt;text-align: left;">
@@ -612,9 +622,7 @@
                             </div>
                             <p style="page-break-after:always;"/>
                         </div>
-                    </t>
-                </t>
-            </t>
+                </div>
         </xpath>
     </template>
 </odoo>

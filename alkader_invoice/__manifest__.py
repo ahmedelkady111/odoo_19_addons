@@ -10,8 +10,8 @@
     'author': "elblasy.app",
     'website': "https://elblasy.app",
     'category': 'account',
-    'version': '1.1.0',
-    'depends': ['base', 'account', 'sale', 'sale_management', ],
+    'version': '19.0.1.0.0',
+    'depends': ['base', 'account', 'sale', 'sale_management'],
     'data': [
         'security/ir.model.access.csv',
         'reports/report.xml',

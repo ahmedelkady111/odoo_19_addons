@@ -1,6 +1,6 @@
 import base64
 from odoo import models, fields, api, _
-from odoo.exceptions import UserError, Warning
+from odoo.exceptions import UserError
 
 
 def generate_tlv_hex(*args):
@@ -20,11 +20,11 @@ def generate_tlv_base64(*args):
 
 class AccountMoveInherit(models.Model):
     _inherit = "account.move"
-    einv_amount_sale_total = fields.Monetary(string="Amount sale total", compute="_compute_total", store='True',
+    einv_amount_sale_total = fields.Monetary(string="Amount sale total", compute="_compute_total", store=True,
                                              help="")
-    einv_amount_discount_total = fields.Monetary(string="Amount discount total", compute="_compute_total", store='True',
+    einv_amount_discount_total = fields.Monetary(string="Amount discount total", compute="_compute_total", store=True,
                                                  help="")
-    einv_amount_tax_total = fields.Monetary(string="Amount tax total", compute="_compute_total", store='True', help="")
+    einv_amount_tax_total = fields.Monetary(string="Amount tax total", compute="_compute_total", store=True, help="")
 
     einv_sa_delivery_date = fields.Date(string='Delivery Date', default=fields.Date.context_today, copy=False)
     einv_sa_show_delivery_date = fields.Boolean(compute='_compute_einv_show_delivery_date')
@@ -103,9 +103,9 @@ class AccountMoveInherit(models.Model):
 
 class AccountMoveLineInherit(models.Model):
     _inherit = "account.move.line"
-    einv_amount_discount = fields.Monetary(string="Amount discount", compute="_compute_amount_discount", store='True',
+    einv_amount_discount = fields.Monetary(string="Amount discount", compute="_compute_amount_discount", store=True,
                                            help="")
-    einv_amount_tax = fields.Monetary(string="Amount tax", compute="_compute_amount_tax", store='True', help="")
+    einv_amount_tax = fields.Monetary(string="Amount tax", compute="_compute_amount_tax", store=True, help="")
 
     @api.depends('discount', 'quantity', 'price_unit')
     def _compute_amount_discount(self):
